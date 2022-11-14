@@ -57,3 +57,8 @@ body {
 .tripple {
   flex-basis: 74.8%;
 }
+
+.symbol {
+  color: #fff;
+  background-color: #df974c;
+}
