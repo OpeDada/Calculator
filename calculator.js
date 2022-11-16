@@ -16,15 +16,16 @@ function buttonClick(value) {
 }
 
 function handleSymbol(symbol) {
+  console.log(symbol)
   switch (symbol) {
     case "C":
       buffer = "0";
       runningTotal = 0;
       break;
-    case "&divide;":
-    case "&plus;":
-    case "&minus;":
-    case "&times;":
+    case "÷":
+    case "+":
+    case "-":
+    case "×":
       handleMath(symbol);
       break;
 
@@ -51,6 +52,18 @@ function handleMath(symbol) {
   buffer = "0";
 }
 
+function flushOperation(intBuffer) {
+  if (previousOperator === "+"){
+    runningTotal += intBuffer;
+  } else if (previousOperator === "-") {
+    runningTotal -= intBuffer;
+  } else if (previousOperator === "×") {
+    runningTotal *= intBuffer;
+  } else {
+    runningTotal /= intBuffer;
+  }
+}
+
 function handleNumber(numberString) {
   if (buffer === "0") {
     buffer = numberString;
@@ -58,6 +71,9 @@ function handleNumber(numberString) {
     buffer += numberString;
   }
 }
+
+// × ÷ -
+
 
 function init() {
   document
