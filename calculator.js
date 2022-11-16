@@ -12,12 +12,29 @@ function buttonClick(value) {
     // this is a number
     handleNumber(value);
   }
+  screen.innerText = buffer;
 }
 
 function handleSymbol(symbol) {
-  if (symbol === "C") {
-    buffer = "0";
-    runningTotal = 0;
+  // if (symbol === "C") {
+  //   buffer = "0";
+  //   runningTotal = 0;
+  // }
+
+  switch (symbol) {
+    case "C":
+      buffer = "0";
+      runningTotal = 0;
+      break;
+    case "&divide;":
+    case "&plus;":
+    case "&minus;":
+    case "&times;":
+      handleMath(symbol);
+      break;
+
+    default:
+      break;
   }
 }
 
@@ -27,8 +44,6 @@ function handleNumber(numberString) {
   } else {
     buffer += numberString;
   }
-
-  screen.innerText = buffer;
 }
 
 function init() {
