@@ -16,11 +16,6 @@ function buttonClick(value) {
 }
 
 function handleSymbol(symbol) {
-  // if (symbol === "C") {
-  //   buffer = "0";
-  //   runningTotal = 0;
-  // }
-
   switch (symbol) {
     case "C":
       buffer = "0";
@@ -36,6 +31,24 @@ function handleSymbol(symbol) {
     default:
       break;
   }
+}
+
+function handleMath(symbol) {
+  if (buffer === "0") {
+    return;
+  }
+
+  const intBuffer = parseInt(buffer);
+
+  if (runningTotal === 0) {
+    runningTotal = intBuffer;
+  } else {
+    flushOperation(intBuffer);
+  }
+
+  previousOperator = symbol;
+
+  buffer = "0";
 }
 
 function handleNumber(numberString) {
