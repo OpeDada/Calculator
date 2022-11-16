@@ -16,7 +16,6 @@ function buttonClick(value) {
 }
 
 function handleSymbol(symbol) {
-  console.log(symbol)
   switch (symbol) {
     case "C":
       buffer = "0";
@@ -53,7 +52,7 @@ function handleMath(symbol) {
 }
 
 function flushOperation(intBuffer) {
-  if (previousOperator === "+"){
+  if (previousOperator === "+") {
     runningTotal += intBuffer;
   } else if (previousOperator === "˗") {
     runningTotal -= intBuffer;
@@ -73,7 +72,6 @@ function handleNumber(numberString) {
 }
 
 // × ÷ -
-
 
 function init() {
   document
